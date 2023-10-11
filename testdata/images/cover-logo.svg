@@ -1,0 +1,31 @@
+<!-- 
+// copyright @2023 mnbook logo
+// https://github.com/wa-lang/mnbook
+-->
+
+<svg xmlns="http://www.w3.org/2000/svg"
+	viewBox="0 0 500 500" width="500" height="500"
+	style="border: 0px solid red"
+>
+
+<!-- top -->
+<polygon stroke="none" fill="#E23A2E"
+	points="110,85 210,20 300,65"
+/>
+
+<!-- center -->
+<polygon stroke="none" fill="#1A73E8"
+	points="80,125 180,380 330,90"
+/>
+
+<!-- left -->
+<polygon stroke="none" fill="#259645"
+	points="65,170 65,315 140,360"
+/>
+
+<!-- right -->
+<polygon stroke="none" fill="#FCC31E"
+	points="225,360 335,145 335,295"
+/>
+
+</svg>

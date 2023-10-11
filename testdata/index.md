@@ -1,0 +1,4 @@
+# Book Title
+
+![](./cover.svg)
+

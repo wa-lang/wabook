@@ -1,0 +1,11 @@
+[book]
+authors = ["chai2010"]
+description = ""
+language = "zh"
+src = "."
+title = "book title"
+
+[output.html]
+git-repository-icon = "fa-github"
+git-repository-url = "https://github.com/wa-lang/mnbook"
+edit-url-template = "https://github.com/wa-lang/mnbook/edit/master/testdata/{path}"

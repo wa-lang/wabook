@@ -1,0 +1,42 @@
+<!-- 
+// copyright @2023 mnbook cover image
+// https://github.com/wa-lang/mnbook
+-->
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 660">
+
+<!-- 外边框 -->
+<polyline points="1,1 519,1 519,659 1,659 1,1" style="fill:none;stroke:black;stroke-width:1"/>
+
+<!-- 顶部横条 -->
+<rect x="50" y="1" width="420" height="10" style="fill:LightSeaGreen;stroke:none;"/>
+
+<!-- 系列图书 -->
+<text x="180" y="30" fill="black" font-style="italic">Mini Markdown Books</text>
+
+<!-- 标题横条 -->
+<rect x="50" y="80" width="420" height="150" style="fill:LightSeaGreen;stroke:none;"/>
+
+<!-- 主标题 -->
+<text x="60" y="180" fill="white" font-size="66px" font-weight="bold">MnBook教程</text>
+
+<!-- 副标题 -->
+<text x="65" y="260" fill="black" font-size="30px">如何用Markdown来写一本书</text>
+
+<!-- 出版社 -->
+<text x="40" y="620" fill="black" font-style="italic" font-size="20px">开源出版社</text>
+
+<!-- 作者 -->
+<text x="320" y="620" fill="black" font-style="italic" font-size="20px">MnBook作者 著</text>
+
+<!-- 中间图像 -->
+<!--
+// 外部图像Chrome之间打开可以, 但是有些场景不能工作. 最终输出改成 Base64 内联.
+// base64 -i input-file -o output.txt
+
+<image x="150" y="320" width="220" height="220" href="favicon.svg" />
+-->
+
+<image x="150" y="320" width="220" height="220" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTkuNyAxODQuMiI+CiAgPHN0eWxlPgogICAgQG1lZGlhIChwcmVmZXJzLWNvbG9yLXNjaGVtZTogZGFyaykgewogICAgICBzdmcgeyBmaWxsOiB3aGl0ZTsgfQogICAgfQogIDwvc3R5bGU+CjxwYXRoIGZpbGw9IiMyOWJlYjAiIGQ9Ik0xODkuNSwzNi44YzAuMiwyLjgsMCw1LjEtMC42LDYuOEwxNTMsMTYyYy0wLjYsMi4xLTIsMy43LTQuMiw1Yy0yLjIsMS4yLTQuNCwxLjktNi43LDEuOUgzMS40Yy05LjYsMC0xNS4zLTIuOC0xNy4zLTguNAogIGMtMC44LTIuMi0wLjgtMy45LDAuMS01LjJjMC45LTEuMiwyLjQtMS44LDQuNi0xLjhIMTIzYzcuNCwwLDEyLjYtMS40LDE1LjQtNC4xczUuNy04LjksOC42LTE4LjRsMzIuOS0xMDguNgogIGMxLjgtNS45LDEtMTEuMS0yLjItMTUuNlMxNjkuOSwwLDE2NCwwSDcyLjdjLTEsMC0zLjEsMC40LTYuMSwxLjFsMC4xLTAuNEM2NC41LDAuMiw2Mi42LDAsNjEsMC4xcy0zLDAuNS00LjMsMS40CiAgYy0xLjMsMC45LTIuNCwxLjgtMy4yLDIuOFM1Miw2LjUsNTEuMiw4LjFjLTAuOCwxLjYtMS40LDMtMS45LDQuM3MtMS4xLDIuNy0xLjgsNC4yYy0wLjcsMS41LTEuMywyLjctMiwzLjdjLTAuNSwwLjYtMS4yLDEuNS0yLDIuNQogIHMtMS42LDItMi4yLDIuOHMtMC45LDEuNS0xLjEsMi4yYy0wLjIsMC43LTAuMSwxLjgsMC4yLDMuMmMwLjMsMS40LDAuNCwyLjQsMC40LDMuMWMtMC4zLDMtMS40LDYuOS0zLjMsMTEuNgogIGMtMS45LDQuNy0zLjYsOC4xLTUuMSwxMC4xYy0wLjMsMC40LTEuMiwxLjMtMi42LDIuN2MtMS40LDEuNC0yLjMsMi42LTIuNiwzLjdjLTAuMywwLjQtMC4zLDEuNS0wLjEsMy40YzAuMywxLjgsMC40LDMuMSwwLjMsMy44CiAgYy0wLjMsMi43LTEuMyw2LjMtMywxMC44Yy0xLjcsNC41LTMuNCw4LjItNSwxMWMtMC4yLDAuNS0wLjksMS40LTIsMi44Yy0xLjEsMS40LTEuOCwyLjUtMiwzLjRjLTAuMiwwLjYtMC4xLDEuOCwwLjEsMy40CiAgYzAuMiwxLjYsMC4yLDIuOC0wLjEsMy42Yy0wLjYsMy0xLjgsNi43LTMuNiwxMWMtMS44LDQuMy0zLjYsNy45LTUuNCwxMWMtMC41LDAuOC0xLjEsMS43LTIsMi44Yy0wLjgsMS4xLTEuNSwyLTIsMi44CiAgcy0wLjgsMS42LTEsMi41Yy0wLjEsMC41LDAsMS4zLDAuNCwyLjNjMC4zLDEuMSwwLjQsMS45LDAuNCwyLjZjLTAuMSwxLjEtMC4yLDIuNi0wLjUsNC40Yy0wLjIsMS44LTAuNCwyLjktMC40LDMuMgogIGMtMS44LDQuOC0xLjcsOS45LDAuMiwxNS4yYzIuMiw2LjIsNi4yLDExLjUsMTEuOSwxNS44YzUuNyw0LjMsMTEuNyw2LjQsMTcuOCw2LjRoMTEwLjdjNS4yLDAsMTAuMS0xLjcsMTQuNy01LjJzNy43LTcuOCw5LjItMTIuOQogIGwzMy0xMDguNmMxLjgtNS44LDEtMTAuOS0yLjItMTUuNUMxOTQuOSwzOS43LDE5Mi42LDM4LDE4OS41LDM2Ljh6IAogICIvPgo8L3N2Zz4KPCEtLSBPcmlnaW5hbCBpbWFnZSBDb3B5cmlnaHQgRGF2ZSBHYW5keSDigJTCoENDIEJZIDQuMCBMaWNlbnNlIC0tPgo=" />
+
+</svg>
