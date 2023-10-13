@@ -7,6 +7,7 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"runtime/debug"
 	"strings"
 
 	cli "github.com/urfave/cli/v2"
@@ -17,6 +18,14 @@ func Main() {
 	cliApp.Name = "mnbook"
 	cliApp.Usage = "A tool for build mini markdown book"
 	cliApp.HideHelpCommand = true
+	cliApp.Version = func() string {
+		if info, ok := debug.ReadBuildInfo(); ok {
+			if s := info.Main.Version; s != "" {
+				return s
+			}
+		}
+		return "dev"
+	}()
 
 	cliApp.CustomAppHelpTemplate = cli.AppHelpTemplate +
 		"\n See \"https://github.com/wa-lang/mnbook\" for more information.\n"
