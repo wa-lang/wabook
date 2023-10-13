@@ -2,6 +2,12 @@
 
 简单的 Markdown 图书构建工具。
 
+使用 [MNBook](https://github.com/wa-lang/mnbook) 构建的图书列表:
+
+- 《凹语言手册》: https://wa-lang.org/man/
+- 《Wa-lang's Manual》: https://wa-lang.github.io/man/en/
+- 《VS Code插件开发》: https://chai2010.cn/vscode-extdev-book/
+
 ## 安装
 
 ```
