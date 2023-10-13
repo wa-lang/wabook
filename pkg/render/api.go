@@ -23,8 +23,9 @@ type BookInfo struct {
 type PageInfo struct {
 	Index int
 
-	Book         *BookInfo
-	SidebarItems []*SidebarItem
+	Book            *BookInfo
+	SidebarItems    []*SidebarItem
+	EditUrlTemplate string
 
 	Root  string
 	Path  string

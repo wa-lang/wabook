@@ -126,9 +126,13 @@ func (*summaryParser) parseTitle(line string) string {
 }
 
 func (*summaryParser) parseItem(line string) (item SummaryItem) {
-	if i := strings.IndexAny(line, "-*"); i >= 0 {
-		item.Prefix = line[:i+1]
-		line = strings.TrimSpace(line[i+1:])
+	if s := strings.TrimSpace(line); s != "" {
+		if s[0] == '-' || s[0] == '*' {
+			if i := strings.IndexAny(line, "-*"); i >= 0 {
+				item.Prefix = line[:i+1]
+				line = strings.TrimSpace(line[i+1:])
+			}
+		}
 	}
 	// [text]
 	if i := strings.Index(line, "["); i >= 0 {

@@ -2,6 +2,12 @@
 
 简单的 Markdown 图书构建工具。
 
+## 安装
+
+```
+$ go install github.com/wa-lang/mnbook@latest
+```
+
 ## 命令行
 
 ```

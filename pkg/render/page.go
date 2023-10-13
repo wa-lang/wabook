@@ -73,6 +73,9 @@ func (p *BookRendor) init(book *mnbook.Book) (err error) {
 	for i, item := range p.Book.Summary.Chapters {
 		pageInfo := p.buildPageInfo(i, item)
 		pageInfo.SidebarItems = p.SidebarItems
+		pageInfo.EditUrlTemplate = strings.ReplaceAll(
+			p.BookInfo.EditUrlTemplate, "{path}", pageInfo.Path,
+		)
 
 		p.PageInfos = append(p.PageInfos, pageInfo)
 	}
