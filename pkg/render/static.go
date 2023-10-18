@@ -15,14 +15,7 @@ import (
 var _staticFS embed.FS
 
 func (p *BookRendor) renderStaticFile() error {
-	return cpDir(filepath.Join(p.Book.Root, "book"), p.Book.Root, []string{
-		".git", "_git",
-		"book", "book.toml",
-		"_book",
-		"_book1",
-		"_book2",
-		"_book3",
-	})
+	return cpDir(filepath.Join(p.Book.Root, "book"), p.Book.Root, p.Ignores)
 }
 
 func (p *BookRendor) renderStaticAsset() error {
