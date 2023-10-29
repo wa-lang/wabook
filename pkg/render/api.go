@@ -48,6 +48,10 @@ type PageInfo struct {
 	NextUrl string
 }
 
+type StaticPageInfo struct {
+	Content string
+}
+
 type SidebarItem struct {
 	Prefix   string
 	Number   string // 1.1, 1.2, ...

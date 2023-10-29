@@ -24,6 +24,9 @@ import (
 //go:embed tmpl/page.html
 var tmplPage string
 
+//go:embed tmpl/print.html
+var tmplPrintPage string
+
 func (p *BookRendor) run(book *mnbook.Book) (err error) {
 	if err := p.init(book); err != nil {
 		return err
@@ -88,6 +91,12 @@ func (p *BookRendor) renderAllPages() error {
 		if err := p.renderPage(i, page); err != nil {
 			return err
 		}
+	}
+	if err := p.renderPrintPage(); err != nil {
+		return nil
+	}
+	if err := p.render404Page(); err != nil {
+		return nil
 	}
 	return nil
 }

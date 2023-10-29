@@ -9,6 +9,6 @@ import (
 	"path/filepath"
 )
 
-func (p *BookRendor) render404page() error {
+func (p *BookRendor) render404Page() error {
 	return os.WriteFile(filepath.Join(p.Book.Root, "book", "404.html"), []byte("TODO"), 0666)
 }

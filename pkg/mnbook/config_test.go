@@ -38,7 +38,7 @@ func TestBookToml_String(t *testing.T) {
 var tExpect = BookToml{
 	Book: BookConfig{
 		Title:    "Book Title",
-		Authors:  []string{"chai2010"},
+		Authors:  []string{"mnbook author"},
 		Language: "zh",
 		Src:      ".",
 	},
