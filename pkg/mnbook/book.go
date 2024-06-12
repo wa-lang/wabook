@@ -16,9 +16,13 @@ type Book struct {
 
 func LoadBook(path string) (book *Book, err error) {
 	book = &Book{Root: path}
-	book.Info, err = LoadConfig(filepath.Join(path, "book.toml"))
+	book.Info, err = LoadConfig(filepath.Join(path, "book.ini"))
 	if err != nil {
-		return nil, err
+		if info, errx := LoadConfig(filepath.Join(path, "book.toml")); errx != nil {
+			return nil, err
+		} else {
+			book.Info = info
+		}
 	}
 	book.Summary, err = LoadSummary(filepath.Join(path, "SUMMARY.md"))
 	if err != nil {

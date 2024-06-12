@@ -8,7 +8,7 @@ import "github.com/wa-lang/mnbook/pkg/mnbook"
 
 var DefaultBookIgnores = []string{
 	".git", "_git",
-	"book", "book.toml",
+	"book", "book.ini",
 	"node_modules",
 }
 

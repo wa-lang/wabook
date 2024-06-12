@@ -41,11 +41,11 @@ GLOBAL OPTIONS:
 - serve: 构建并启动服务, 方便本地查看效果
 - clean: 删除构建的 book 子目录
 
-## `book.toml` 文件
+## `book.ini` 文件
 
 不支持注释，不支持未定义属性：
 
-```toml
+```ini
 [book]
 authors = ["chai2010"]
 description = ""

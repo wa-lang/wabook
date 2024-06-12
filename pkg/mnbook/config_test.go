@@ -12,7 +12,7 @@ import (
 )
 
 func TestLoadConfig(t *testing.T) {
-	meta, err := LoadConfig("../../testdata/book.toml")
+	meta, err := LoadConfig("../../testdata/book.ini")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -22,7 +22,7 @@ func TestLoadConfig(t *testing.T) {
 }
 
 func TestBookToml_String(t *testing.T) {
-	data, err := os.ReadFile("../../testdata/book.toml")
+	data, err := os.ReadFile("../../testdata/book.ini")
 	if err != nil {
 		t.Fatal(err)
 	}
