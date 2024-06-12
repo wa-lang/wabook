@@ -7,6 +7,7 @@
 - 《凹语言手册》: https://wa-lang.org/man/
 - 《Wa-lang's Manual》: https://wa-lang.github.io/man/en/
 - 《VS Code插件开发》: https://chai2010.cn/vscode-extdev-book/
+- 《Go语言圣经读书笔记》: https://github.com/chai2010/gopl-notes-zh
 
 ## 安装
 
