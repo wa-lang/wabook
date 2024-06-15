@@ -59,6 +59,9 @@ func (p *BookRendor) init(book *mnbook.Book) (err error) {
 
 	*p = BookRendor{}
 	p.Book = book
+	if len(p.Ignores) == 0 {
+		p.Ignores = append(p.Ignores, DefaultBookIgnores...)
+	}
 
 	p.BookInfo = &BookInfo{
 		Title:           book.Info.Book.Title,
