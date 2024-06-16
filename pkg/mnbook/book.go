@@ -12,6 +12,7 @@ type Book struct {
 	Root    string
 	Info    *BookToml
 	Summary *Summary
+	Talks   []string
 }
 
 func LoadBook(path string) (book *Book, err error) {
@@ -28,5 +29,6 @@ func LoadBook(path string) (book *Book, err error) {
 	if err != nil {
 		return nil, err
 	}
+	book.Talks = loadTalks(path)
 	return
 }

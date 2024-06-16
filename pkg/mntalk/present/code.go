@@ -15,28 +15,17 @@ import (
 	"strings"
 )
 
-// PlayEnabled specifies whether runnable playground snippets should be
-// displayed in the present user interface.
-var PlayEnabled = false
-
-// TODO(adg): replace the PlayEnabled flag with something less spaghetti-like.
-// Instead this will probably be determined by a template execution Context
-// value that contains various global metadata required when rendering
-// templates.
-
 // NotesEnabled specifies whether presenter notes should be displayed in the
 // present user interface.
 var NotesEnabled = false
 
 func init() {
 	Register("code", parseCode)
-	Register("play", parseCode)
 }
 
 type Code struct {
 	Cmd      string // original command from present source
 	Text     template.HTML
-	Play     bool   // runnable code
 	Edit     bool   // editable code
 	FileName string // file name
 	Ext      string // file extension
@@ -77,16 +66,15 @@ func parseCode(ctx *Context, sourceFile string, sourceLine int, cmd string) (Ele
 	// Parse the remaining command line.
 	// Arguments:
 	// args[0]: whole match
-	// args[1]:  .code/.play
+	// args[1]:  .code
 	// args[2]: flags ("-edit -numbers")
 	// args[3]: file name
 	// args[4]: optional address
 	args := codeRE.FindStringSubmatch(cmd)
 	if len(args) != 5 {
-		return nil, fmt.Errorf("%s:%d: syntax error for .code/.play invocation", sourceFile, sourceLine)
+		return nil, fmt.Errorf("%s:%d: syntax error for .code invocation", sourceFile, sourceLine)
 	}
-	command, flags, file, addr := args[1], args[2], args[3], strings.TrimSpace(args[4])
-	play := command == "play" && PlayEnabled
+	_, flags, file, addr := args[1], args[2], args[3], strings.TrimSpace(args[4])
 
 	// Read in code file and (optionally) match address.
 	filename := filepath.Join(filepath.Dir(sourceFile), file)
@@ -123,12 +111,6 @@ func parseCode(ctx *Context, sourceFile string, sourceLine int, cmd string) (Ele
 		Numbers: strings.Contains(flags, "-numbers"),
 	}
 
-	// Include before and after in a hidden span for playground code.
-	if play {
-		data.Prefix = textBytes[:lo]
-		data.Suffix = textBytes[hi:]
-	}
-
 	var buf bytes.Buffer
 	if err := codeTemplate.Execute(&buf, data); err != nil {
 		return nil, err
@@ -136,7 +118,6 @@ func parseCode(ctx *Context, sourceFile string, sourceLine int, cmd string) (Ele
 	return Code{
 		Cmd:      origCmd,
 		Text:     template.HTML(buf.String()),
-		Play:     play,
 		Edit:     data.Edit,
 		FileName: filepath.Base(filename),
 		Ext:      filepath.Ext(filename),

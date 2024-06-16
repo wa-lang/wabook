@@ -47,6 +47,10 @@ func (p *BookRendor) run(book *mnbook.Book) (err error) {
 		return err
 	}
 
+	if err := p.renderAllTalkPages(); err != nil {
+		return err
+	}
+
 	return nil
 }
 

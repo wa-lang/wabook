@@ -41,9 +41,8 @@ func (d *Doc) Render(w io.Writer, t *template.Template) error {
 	data := struct {
 		*Doc
 		Template     *template.Template
-		PlayEnabled  bool
 		NotesEnabled bool
-	}{d, t, PlayEnabled, NotesEnabled}
+	}{d, t, NotesEnabled}
 	return t.ExecuteTemplate(w, "root", data)
 }
 
@@ -51,9 +50,8 @@ func (d *Doc) Render(w io.Writer, t *template.Template) error {
 func (s *Section) Render(w io.Writer, t *template.Template) error {
 	data := struct {
 		*Section
-		Template    *template.Template
-		PlayEnabled bool
-	}{s, t, PlayEnabled}
+		Template *template.Template
+	}{s, t}
 	return t.ExecuteTemplate(w, "section", data)
 }
 

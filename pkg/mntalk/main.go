@@ -20,18 +20,16 @@ import (
 )
 
 var (
-	httpAddr      = flag.String("http", "127.0.0.1:3999", "HTTP service address (e.g., '127.0.0.1:3999')")
-	originHost    = flag.String("orighost", "", "host component of web origin URL (e.g., 'localhost')")
-	basePath      = flag.String("base", "", "base path for slide template and static resources")
-	contentPath   = flag.String("content", ".", "base path for presentation content")
-	usePlayground = flag.Bool("use_playground", false, "run code snippets using play.golang.org; if false, run them locally and deliver results by WebSocket transport")
+	httpAddr    = flag.String("http", "127.0.0.1:3999", "HTTP service address (e.g., '127.0.0.1:3999')")
+	originHost  = flag.String("orighost", "", "host component of web origin URL (e.g., 'localhost')")
+	basePath    = flag.String("base", "", "base path for slide template and static resources")
+	contentPath = flag.String("content", ".", "base path for presentation content")
 )
 
 //go:embed static templates
 var embedFS embed.FS
 
 func main() {
-	flag.BoolVar(&present.PlayEnabled, "play", true, "enable playground (permit execution of arbitrary user code)")
 	flag.BoolVar(&present.NotesEnabled, "notes", false, "enable presenter notes (press 'N' from the browser to display them)")
 	flag.Parse()
 
@@ -47,7 +45,6 @@ func main() {
 			log.Fatalf("Couldn't get pwd: %v\n", err)
 		}
 		*basePath = pwd
-		*usePlayground = true
 		*contentPath = "./content/"
 	}
 
@@ -94,11 +91,9 @@ func main() {
 		}
 	}
 
-	initPlayground(fsys, origin)
 	http.Handle("/static/", http.FileServer(http.FS(fsys)))
 
-	if !ln.Addr().(*net.TCPAddr).IP.IsLoopback() &&
-		present.PlayEnabled && !*usePlayground {
+	if !ln.Addr().(*net.TCPAddr).IP.IsLoopback() {
 		log.Print(localhostWarning)
 	}
 
