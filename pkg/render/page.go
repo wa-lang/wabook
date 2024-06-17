@@ -24,6 +24,9 @@ import (
 //go:embed tmpl/page.html
 var tmplPage string
 
+//go:embed tmpl/talk.html
+var tmplTalk string
+
 //go:embed tmpl/print.html
 var tmplPrintPage string
 
