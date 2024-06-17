@@ -29,6 +29,6 @@ func LoadBook(path string) (book *Book, err error) {
 	if err != nil {
 		return nil, err
 	}
-	book.Talks = loadTalks(path)
+	book.Talks = loadTalks(book.Root)
 	return
 }

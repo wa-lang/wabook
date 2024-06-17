@@ -21,7 +21,10 @@ func loadTalks(root string) []string {
 			return nil
 		}
 		if strings.HasSuffix(strings.ToLower(path), ".talk.md") {
-			ss = append(ss, path)
+			relpath, err := filepath.Rel(root, path)
+			if err == nil {
+				ss = append(ss, relpath)
+			}
 		}
 		return nil
 	})

@@ -27,6 +27,9 @@ var tmplPage string
 //go:embed tmpl/talk.html
 var tmplTalk string
 
+//go:embed tmpl/action.tmpl
+var tmplAction string
+
 //go:embed tmpl/print.html
 var tmplPrintPage string
 

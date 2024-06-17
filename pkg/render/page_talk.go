@@ -28,27 +28,26 @@ func (p *BookRendor) renderAllTalkPages() error {
 	return nil
 }
 
-func (p *BookRendor) renderTalkPages(name string) error {
-	content, err := os.ReadFile(name)
+func (p *BookRendor) renderTalkPages(path string) error {
+	content, err := os.ReadFile(filepath.Join(p.Book.Root, path))
 	if err != nil {
 		return err
 	}
 
-	doc, err := present.Parse(bytes.NewReader(content), name, 0)
+	doc, err := present.Parse(bytes.NewReader(content), path, 0)
 	if err != nil {
 		return err
 	}
 
-	var fnMap = template.FuncMap{}
-	t := template.Must(template.New("").Funcs(fnMap).Parse(tmplTalk))
+	t := template.Must(present.Template().Parse(tmplTalk))
+	t = template.Must(t.Parse(tmplAction))
 
 	var buf bytes.Buffer
 	if err = doc.Render(&buf, t); err != nil {
 		return err
 	}
 
-	relpath := name
-	dstAbsPath := filepath.Join(p.Book.Root, "book", relpath)
+	dstAbsPath := filepath.Join(p.Book.Root, "book", path)
 	if ext := filepath.Ext(dstAbsPath); strings.EqualFold(ext, ".md") {
 		dstAbsPath = dstAbsPath[:len(dstAbsPath)-len(".md")]
 	}
