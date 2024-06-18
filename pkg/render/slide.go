@@ -48,8 +48,8 @@ func (p *BookRendor) renderTalkPages(path string) error {
 	}
 
 	dstAbsPath := filepath.Join(p.Book.Root, "book", path)
-	if ext := filepath.Ext(dstAbsPath); strings.EqualFold(ext, ".md") {
-		dstAbsPath = dstAbsPath[:len(dstAbsPath)-len(".md")]
+	if ext := filepath.Ext(dstAbsPath); strings.EqualFold(ext, ".slide") {
+		dstAbsPath = dstAbsPath[:len(dstAbsPath)-len(".slide")]
 	}
 	dstAbsPath += ".html"
 

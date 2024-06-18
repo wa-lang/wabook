@@ -4,25 +4,16 @@ My Name
 9 Mar 2020
 me@example.com
 
-## Title of Slide or Section (must begin with ##)
+## Title of Slide (must begin with ##)
 
 Some Text
-
-### Subsection {#anchor}
 
 - bullets
 - more bullets
 - a bullet continued
   on the next line
 
-#### Sub-subsection
-
-Some More text
-
-	Preformatted text (code block)
-	is indented (by one tab, or four spaces)
-
-Further Text, including command invocations.
+## Section
 
 ## Section 2: Example formatting {#fmt}
 

@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-// 加载 *.talk.md 文件列表
+// 加载 *.slide 文件列表
 func loadTalks(root string) []string {
 	var ss []string
 	filepath.Walk(root, func(path string, info fs.FileInfo, err error) error {
@@ -20,7 +20,7 @@ func loadTalks(root string) []string {
 		if info.IsDir() {
 			return nil
 		}
-		if strings.HasSuffix(strings.ToLower(path), ".talk.md") {
+		if strings.HasSuffix(strings.ToLower(path), ".slide") {
 			relpath, err := filepath.Rel(root, path)
 			if err == nil {
 				ss = append(ss, relpath)
