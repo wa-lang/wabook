@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-var PERMANENT_URL_PREFIX = '/static/';
+var PERMANENT_URL_PREFIX = './static/talk/';
 
 var SLIDE_CLASSES = ['far-past', 'past', 'current', 'next', 'far-next'];
 
@@ -490,9 +490,11 @@ function addFontStyle() {
   var el = document.createElement('link');
   el.rel = 'stylesheet';
   el.type = 'text/css';
-  el.href =
-    '//fonts.googleapis.com/css?family=' +
-    'Open+Sans:regular,semibold,italic,italicsemibold|Droid+Sans+Mono';
+
+  //el.href =
+  //  '//fonts.googleapis.com/css?family=' +
+  //  'Open+Sans:regular,semibold,italic,italicsemibold|Droid+Sans+Mono';
+  el.href = PERMANENT_URL_PREFIX + 'font.css';
 
   document.body.appendChild(el);
 }
@@ -571,7 +573,7 @@ if (!window['_DEBUG'] && document.location.href.indexOf('?debug') !== -1) {
   window['_DEBUG'] = true;
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src = '../slides.js';
+  script.src = PERMANENT_URL_PREFIX + 'slides.js';
   var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(script, s);
 
@@ -586,31 +588,6 @@ if (!window['_DEBUG'] && document.location.href.indexOf('?debug') !== -1) {
 function setupNotesSync() {
   if (!notesEnabled) return;
 
-  function setupPlayResizeSync() {
-    var out = document.getElementsByClassName('output');
-    for (var i = 0; i < out.length; i++) {
-      $(out[i]).bind('resize', function(event) {
-        if ($(event.target).hasClass('ui-resizable')) {
-          localStorage.setItem('play-index', i);
-          localStorage.setItem('output-style', out[i].style.cssText);
-        }
-      });
-    }
-  }
-  function setupPlayCodeSync() {
-    var play = document.querySelectorAll('div.playground');
-    for (var i = 0; i < play.length; i++) {
-      play[i].addEventListener('input', inputHandler, false);
-
-      function inputHandler(e) {
-        localStorage.setItem('play-index', i);
-        localStorage.setItem('play-code', e.target.innerHTML);
-      }
-    }
-  }
-
-  setupPlayCodeSync();
-  setupPlayResizeSync();
   localStorage.setItem(destSlideKey(), curSlide);
   window.addEventListener('storage', updateOtherWindow, false);
 }
