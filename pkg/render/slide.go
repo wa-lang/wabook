@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/wa-lang/mnbook/pkg/mntalk/present"
+	"github.com/wa-lang/mnbook/pkg/present"
 )
 
 func (p *BookRendor) renderAllTalkPages() error {
