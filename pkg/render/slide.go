@@ -39,7 +39,7 @@ func (p *BookRendor) renderTalkPages(path string) error {
 		return err
 	}
 
-	t := template.Must(present.Template().Parse(tmplTalk))
+	t := template.Must(present.Template().Parse(tmplPresent))
 	t = template.Must(t.Parse(tmplAction))
 
 	var buf bytes.Buffer

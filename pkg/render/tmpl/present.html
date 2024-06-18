@@ -9,14 +9,14 @@
     <script>
       var notesEnabled = {{.NotesEnabled}};
     </script>
-    <script src='./static/talk/slides.js'></script>
+    <script src='./static/present/slides.js'></script>
 
     {{if .NotesEnabled}}
     <script>
       var sections = {{.Sections}};
       var titleNotes = {{.TitleNotes}}
     </script>
-    <script src='./static/talk/notes.js'></script>
+    <script src='./static/present/notes.js'></script>
     {{end}}
   </head>
 
