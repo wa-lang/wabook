@@ -15,6 +15,20 @@ import (
 var _staticFS embed.FS
 
 func (p *BookRendor) renderStaticFile() error {
+	if p.Book.Info.Giscus.Enabled {
+		dst := filepath.Join(p.Book.Root, "book", "giscus.js")
+		js, err := p.genGiscusJs()
+		if err != nil {
+			panic(err)
+		}
+
+		os.MkdirAll(filepath.Dir(dst), 0777)
+		err = os.WriteFile(dst, []byte(js), 0666)
+		if err != nil {
+			panic(err)
+		}
+	}
+
 	return cpDir(filepath.Join(p.Book.Root, "book"), p.Book.Root, p.Ignores)
 }
 
@@ -39,7 +53,7 @@ func (p *BookRendor) renderStaticAsset() error {
 		dstpath := filepath.Join(p.Book.Root, "book", path)
 		os.MkdirAll(filepath.Dir(dstpath), 0777)
 
-		os.WriteFile(dstpath, data, 0666)
+		err = os.WriteFile(dstpath, data, 0666)
 		if err != nil {
 			return err
 		}

@@ -157,6 +157,10 @@
                 {{end}}
             </nav>
 
+            {{if $page.Book.Giscus.Enabled}}
+                <div id="giscus-container"></div>
+            {{end}}
+
         </div>
 
         <script type="text/javascript">
@@ -166,6 +170,10 @@
         <script src="{{$page.Root}}/static/mnbook/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="{{$page.Root}}/static/mnbook/highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="{{$page.Root}}/static/mnbook/book.js" type="text/javascript" charset="utf-8"></script>
+
+        {{if $page.Book.Giscus.Enabled}}
+            <script src="{{$page.Root}}/static/mnbook/giscus.js" type="text/javascript" charset="utf-8"></script>
+        {{end}}
 
         <!-- Custom JS scripts -->
     </body>

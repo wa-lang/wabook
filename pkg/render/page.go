@@ -78,6 +78,7 @@ func (p *BookRendor) init(book *mnbook.Book) (err error) {
 		GitRepoIcon:     book.Info.OutputHtml.GitRepositoryIcon,
 		GitRepoUrl:      book.Info.OutputHtml.GitRepositoryUrl,
 		EditUrlTemplate: book.Info.OutputHtml.EditUrlTemplate,
+		Giscus:          book.Info.Giscus,
 	}
 
 	sidebarNumbers := p.buildSidebarNumbers()
@@ -134,6 +135,11 @@ func (p *BookRendor) renderPage(idx int, page *PageInfo) error {
 			return SidebarTree(p.SidebarItems).GenHTML(pageRoot, pageIndex)
 		},
 	}
+
+	if page.Book == nil {
+		panic("aa22")
+	}
+
 	t := template.Must(template.New("").Funcs(fnMap).Parse(tmplPage))
 	err := t.Execute(&buf, page)
 	if err != nil {
