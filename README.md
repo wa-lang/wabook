@@ -2,8 +2,18 @@
 
 简单的 Markdown 图书构建工具。
 
+## 特性
+
+- 支持 Markdown 格式的电子书构建
+- 支持 Markdown 格式的幻灯片构建
+- 支持基于 Github Discuss 的留言功能
+- 电子书支持自定义 页眉/页脚
+
+## 案例
+
 使用 [MNBook](https://github.com/wa-lang/mnbook) 构建的图书列表:
 
+- 《Go语言高级编程》: https://github.com/chai2010/advanced-go-programming-book
 - 《凹语言手册》: https://wa-lang.org/man/
 - 《Wa-lang's Manual》: https://wa-lang.github.io/man/en/
 - 《VS Code插件开发》: https://chai2010.cn/vscode-extdev-book/
