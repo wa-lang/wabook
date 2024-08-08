@@ -14,6 +14,8 @@
 使用 [MNBook](https://github.com/wa-lang/mnbook) 构建的图书列表:
 
 - 《Go语言高级编程》: https://github.com/chai2010/advanced-go-programming-book
+- 《Go语言定制指南》: https://github.com/chai2010/go-ast-book
+- 《µGo语言实现(从头开发一个迷你Go语言编译器)》: https://github.com/wa-lang/ugo-compiler-book
 - 《凹语言手册》: https://wa-lang.org/man/
 - 《Wa-lang's Manual》: https://wa-lang.github.io/man/en/
 - 《VS Code插件开发》: https://chai2010.cn/vscode-extdev-book/
