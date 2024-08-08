@@ -126,10 +126,20 @@
                     <div class="sidetoc"><nav class="pagetoc"></nav></div>
 
                     <main>
+                        {{$page.Book.Custom.ContentHeader}}
+
                         {{$page.RawHtml}}
+
+                        {{$page.Book.Custom.ContentFooter}}
 
                         {{if $page.Book.Giscus.Enabled}}
                             <div id="giscus-container"></div>
+                        {{end}}
+
+                        {{if $page.Book.Custom.PageFooter}}
+                            <footer class="page-footer">
+                                {{$page.Book.Custom.PageFooter}}
+                            </footer>
                         {{end}}
                     </main>
 

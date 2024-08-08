@@ -13,8 +13,15 @@ import (
 
 type BookToml struct {
 	Book       BookConfig   `json:"book" toml:"book"`
-	OutputHtml HtmlConfig   `json:"output.html" toml:"output.html"`
+	Custom     CustomConfig `json:"custom" toml:"custom"`
 	Giscus     GiscusConfig `json:"giscus" toml:"giscus"`
+	OutputHtml HtmlConfig   `json:"output.html" toml:"output.html"`
+}
+
+type CustomConfig struct {
+	ContentHeader string `json:"content_header" toml:"content_header"`
+	ContentFooter string `json:"content_footer" toml:"content_footer"`
+	PageFooter    string `json:"page_footer" toml:"page_footer"`
 }
 
 type BookConfig struct {

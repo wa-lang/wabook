@@ -78,6 +78,7 @@ func (p *BookRendor) init(book *mnbook.Book) (err error) {
 		GitRepoIcon:     book.Info.OutputHtml.GitRepositoryIcon,
 		GitRepoUrl:      book.Info.OutputHtml.GitRepositoryUrl,
 		EditUrlTemplate: book.Info.OutputHtml.EditUrlTemplate,
+		Custom:          book.Info.Custom,
 		Giscus:          book.Info.Giscus,
 	}
 

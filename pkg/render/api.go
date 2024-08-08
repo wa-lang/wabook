@@ -25,6 +25,7 @@ type BookInfo struct {
 	GitRepoIcon     string
 	GitRepoUrl      string
 	EditUrlTemplate string
+	Custom          mnbook.CustomConfig
 	Giscus          mnbook.GiscusConfig
 }
 
