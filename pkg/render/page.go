@@ -136,10 +136,6 @@ func (p *BookRendor) renderPage(idx int, page *PageInfo) error {
 		},
 	}
 
-	if page.Book == nil {
-		panic("aa22")
-	}
-
 	t := template.Must(template.New("").Funcs(fnMap).Parse(tmplPage))
 	err := t.Execute(&buf, page)
 	if err != nil {

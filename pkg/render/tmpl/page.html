@@ -122,8 +122,15 @@
                 </script>
 
                 <div id="content" class="content">
+                    <!-- Page table of contents -->
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
                     <main>
                         {{$page.RawHtml}}
+
+                        {{if $page.Book.Giscus.Enabled}}
+                            <div id="giscus-container"></div>
+                        {{end}}
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -157,10 +164,6 @@
                 {{end}}
             </nav>
 
-            {{if $page.Book.Giscus.Enabled}}
-                <div id="giscus-container"></div>
-            {{end}}
-
         </div>
 
         <script type="text/javascript">
@@ -170,11 +173,15 @@
         <script src="{{$page.Root}}/static/mnbook/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="{{$page.Root}}/static/mnbook/highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="{{$page.Root}}/static/mnbook/book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script type="text/javascript" charset="utf-8">
+            var pagePath = "{{$page.Path}}"
+        </script>
 
+        <!-- Custom JS scripts -->
         {{if $page.Book.Giscus.Enabled}}
             <script src="{{$page.Root}}/static/mnbook/giscus.js" type="text/javascript" charset="utf-8"></script>
         {{end}}
 
-        <!-- Custom JS scripts -->
     </body>
 </html>
