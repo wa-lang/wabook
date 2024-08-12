@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package mnbook
+package wabook
 
 import (
 	"os"
@@ -38,13 +38,13 @@ func TestBookToml_String(t *testing.T) {
 var tExpect = BookToml{
 	Book: BookConfig{
 		Title:    "Book Title",
-		Authors:  []string{"mnbook author"},
+		Authors:  []string{"wabook author"},
 		Language: "zh",
 		Src:      ".",
 	},
 	OutputHtml: HtmlConfig{
 		GitRepositoryIcon: "fa-github",
-		GitRepositoryUrl:  "https://github.com/wa-lang/mnbook",
-		EditUrlTemplate:   "https://github.com/wa-lang/mnbook/edit/master/testdata/{path}",
+		GitRepositoryUrl:  "https://github.com/wa-lang/wabook",
+		EditUrlTemplate:   "https://github.com/wa-lang/wabook/edit/master/testdata/{path}",
 	},
 }

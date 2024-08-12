@@ -10,5 +10,5 @@ import (
 )
 
 func (p *BookRendor) renderHomepage() error {
-	return os.WriteFile(filepath.Join(p.Book.Root, "book", "index.html"), []byte("hello mnbook"), 0666)
+	return os.WriteFile(filepath.Join(p.Book.Root, "book", "index.html"), []byte("hello wabook"), 0666)
 }

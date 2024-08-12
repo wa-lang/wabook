@@ -18,7 +18,7 @@ import (
 	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/extension"
 
-	"github.com/wa-lang/mnbook/pkg/mnbook"
+	"github.com/wa-lang/wabook/pkg/wabook"
 )
 
 //go:embed tmpl/page.html
@@ -33,7 +33,7 @@ var tmplAction string
 //go:embed tmpl/print.html
 var tmplPrintPage string
 
-func (p *BookRendor) run(book *mnbook.Book) (err error) {
+func (p *BookRendor) run(book *wabook.Book) (err error) {
 	if err := p.init(book); err != nil {
 		return err
 	}
@@ -60,7 +60,7 @@ func (p *BookRendor) run(book *mnbook.Book) (err error) {
 	return nil
 }
 
-func (p *BookRendor) init(book *mnbook.Book) (err error) {
+func (p *BookRendor) init(book *wabook.Book) (err error) {
 	defer func() {
 		if r := recover(); r != nil {
 			err = fmt.Errorf("%v", r)
@@ -215,7 +215,7 @@ func (p *BookRendor) buildSidebarNumbers() []string {
 	return numbers
 }
 
-func (p *BookRendor) buildSidebarItem(idx int, item mnbook.SummaryItem, sidebarNumbers []string) *SidebarItem {
+func (p *BookRendor) buildSidebarItem(idx int, item wabook.SummaryItem, sidebarNumbers []string) *SidebarItem {
 	sidebarItem := new(SidebarItem)
 	sidebarItem.Prefix = item.Prefix
 	sidebarItem.Number = sidebarNumbers[idx]
@@ -228,7 +228,7 @@ func (p *BookRendor) buildSidebarItem(idx int, item mnbook.SummaryItem, sidebarN
 	return sidebarItem
 }
 
-func (p *BookRendor) buildPageInfo(idx int, item mnbook.SummaryItem) *PageInfo {
+func (p *BookRendor) buildPageInfo(idx int, item wabook.SummaryItem) *PageInfo {
 	page := new(PageInfo)
 
 	page.Index = idx
@@ -252,11 +252,11 @@ func (p *BookRendor) buildPageInfo(idx int, item mnbook.SummaryItem) *PageInfo {
 	return page
 }
 
-func (p *BookRendor) getPageLocalAbsPath(item mnbook.SummaryItem) string {
+func (p *BookRendor) getPageLocalAbsPath(item wabook.SummaryItem) string {
 	return filepath.Clean(filepath.Join(p.Book.Root, p.Book.Info.Book.Src, item.Location))
 }
 
-func (p *BookRendor) getPageRelPath(item mnbook.SummaryItem) string {
+func (p *BookRendor) getPageRelPath(item wabook.SummaryItem) string {
 	absPath := filepath.Clean(filepath.Join(p.Book.Root, p.Book.Info.Book.Src, item.Location))
 	relPath, err := filepath.Rel(p.Book.Root, absPath)
 	if err != nil {
@@ -265,7 +265,7 @@ func (p *BookRendor) getPageRelPath(item mnbook.SummaryItem) string {
 	return relPath
 }
 
-func (p *BookRendor) getPageRootPath(item mnbook.SummaryItem) string {
+func (p *BookRendor) getPageRootPath(item wabook.SummaryItem) string {
 	absPath := filepath.Clean(filepath.Join(p.Book.Root, p.Book.Info.Book.Src, filepath.Dir(item.Location)))
 	relPath, err := filepath.Rel(absPath, p.Book.Root)
 
@@ -275,11 +275,11 @@ func (p *BookRendor) getPageRootPath(item mnbook.SummaryItem) string {
 	return relPath
 }
 
-func (p *BookRendor) getPageTitle(item mnbook.SummaryItem) string {
+func (p *BookRendor) getPageTitle(item wabook.SummaryItem) string {
 	return fmt.Sprintf("%s - %s", item.Name, p.BookInfo.Title)
 }
 
-func (p *BookRendor) loadPageContent(item mnbook.SummaryItem) string {
+func (p *BookRendor) loadPageContent(item wabook.SummaryItem) string {
 	localAbsPath := p.getPageLocalAbsPath(item)
 	if _, err := os.Lstat(localAbsPath); errors.Is(err, os.ErrNotExist) {
 		var buf bytes.Buffer

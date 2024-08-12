@@ -16,7 +16,7 @@ var _staticFS embed.FS
 
 func (p *BookRendor) renderStaticFile() error {
 	if p.Book.Info.Giscus.Enabled {
-		dst := filepath.Join(p.Book.Root, "book/static/mnbook/giscus.js")
+		dst := filepath.Join(p.Book.Root, "book/static/wabook/giscus.js")
 		js, err := p.genGiscusJs()
 		if err != nil {
 			panic(err)

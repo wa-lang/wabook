@@ -5,6 +5,6 @@
 // A tool for build markdown book
 package main
 
-import "github.com/wa-lang/mnbook/pkg/cmd"
+import "github.com/wa-lang/wabook/pkg/cmd"
 
 func main() { cmd.Main() }

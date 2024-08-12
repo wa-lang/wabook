@@ -10,8 +10,8 @@ import (
 
 	cli "github.com/urfave/cli/v2"
 
-	"github.com/wa-lang/mnbook/pkg/mnbook"
-	"github.com/wa-lang/mnbook/pkg/render"
+	"github.com/wa-lang/wabook/pkg/render"
+	"github.com/wa-lang/wabook/pkg/wabook"
 )
 
 var CmdBuild = &cli.Command{
@@ -32,7 +32,7 @@ var CmdBuild = &cli.Command{
 }
 
 func BuildBook(path string) error {
-	book, err := mnbook.LoadBook(path)
+	book, err := wabook.LoadBook(path)
 	if err != nil {
 		return fmt.Errorf("LoadBook: %w", err)
 	}

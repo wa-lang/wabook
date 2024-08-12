@@ -1,6 +1,6 @@
 <!-- 
-// copyright @2023 mnbook cover image
-// https://github.com/wa-lang/mnbook
+// copyright @2023 wabook cover image
+// https://github.com/wa-lang/wabook
 -->
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 660">
@@ -18,7 +18,7 @@
 <rect x="50" y="80" width="420" height="150" style="fill:LightSeaGreen;stroke:none;"/>
 
 <!-- 主标题 -->
-<text x="60" y="180" fill="white" font-size="66px" font-weight="bold">MnBook教程</text>
+<text x="60" y="180" fill="white" font-size="66px" font-weight="bold">waBook教程</text>
 
 <!-- 副标题 -->
 <text x="65" y="260" fill="black" font-size="30px">如何用Markdown来写一本书</text>
@@ -27,7 +27,7 @@
 <text x="40" y="620" fill="black" font-style="italic" font-size="20px">开源出版社</text>
 
 <!-- 作者 -->
-<text x="320" y="620" fill="black" font-style="italic" font-size="20px">MnBook作者 著</text>
+<text x="320" y="620" fill="black" font-style="italic" font-size="20px">waBook作者 著</text>
 
 <!-- 中间图像 -->
 <!--

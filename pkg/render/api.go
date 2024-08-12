@@ -4,7 +4,7 @@
 
 package render
 
-import "github.com/wa-lang/mnbook/pkg/mnbook"
+import "github.com/wa-lang/wabook/pkg/wabook"
 
 var DefaultBookIgnores = []string{
 	".git", "_git",
@@ -13,7 +13,7 @@ var DefaultBookIgnores = []string{
 }
 
 type BookRendor struct {
-	Book         *mnbook.Book
+	Book         *wabook.Book
 	BookInfo     *BookInfo
 	PageInfos    []*PageInfo
 	SidebarItems []*SidebarItem
@@ -25,8 +25,8 @@ type BookInfo struct {
 	GitRepoIcon     string
 	GitRepoUrl      string
 	EditUrlTemplate string
-	Custom          mnbook.CustomConfig
-	Giscus          mnbook.GiscusConfig
+	Custom          wabook.CustomConfig
+	Giscus          wabook.GiscusConfig
 }
 
 type PageInfo struct {
@@ -67,6 +67,6 @@ func New() *BookRendor {
 	}
 }
 
-func (p *BookRendor) Run(book *mnbook.Book) error {
+func (p *BookRendor) Run(book *wabook.Book) error {
 	return p.run(book)
 }

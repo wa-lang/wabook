@@ -1,5 +1,5 @@
 <div align="center">
-<h1>waBook: Create book/talk from markdown files.</h1>
+<h1>waBook: 简单的 Markdown 图书构建工具.</h1>
 
 [简体中文](https://github.com/wa-lang/wabook/blob/master/README-zh.md) | [English](https://github.com/wa-lang/wabook/blob/master/README.md) 
 
@@ -14,16 +14,16 @@
 
 </div>
 
-## Features
+## 特性
 
-- Create book from Markdown
-- Create slide from Markdown
-- Create book discuss based on Github Discuss
-- Supports custom header/footer
+- 支持 Markdown 格式的电子书构建
+- 支持 Markdown 格式的幻灯片构建
+- 支持基于 Github Discuss 的留言功能
+- 电子书支持自定义 页眉/页脚
 
-## Example
+## 案例
 
-Book list built using [waBook](https://github.com/wa-lang/wabook):
+使用 [waBook](https://github.com/wa-lang/wabook) 构建的图书列表:
 
 - 《Go语言圣经》: https://gopl-zh.github.io
 - 《Go语言高级编程》: https://github.com/chai2010/advanced-go-programming-book
@@ -34,7 +34,7 @@ Book list built using [waBook](https://github.com/wa-lang/wabook):
 - 《VS Code插件开发》: https://chai2010.cn/vscode-extdev-book/
 - 《Go语言圣经读书笔记》: https://github.com/chai2010/gopl-notes-zh
 
-## Install
+## 安装
 
 ```
 $ go install github.com/wa-lang/wabook@latest
@@ -62,14 +62,14 @@ GLOBAL OPTIONS:
  See "https://github.com/wa-lang/wabook" for more information.
 ```
 
-- init: Initialize a basic version of Book
-- build: Build the Markdown Book into html
-- serve: Build and start the service to facilitate local viewing of the effect
-- clean: Delete the built book subdirectory
+- init: 初始化一个 Book 基础版本
+- build: 将 Markdown 的 Book 构建为 html
+- serve: 构建并启动服务, 方便本地查看效果
+- clean: 删除构建的 book 子目录
 
-## `book.ini` file
+## `book.ini` 文件
 
-No annotations supported, no undefined properties supported:
+不支持注释，不支持未定义属性：
 
 ```ini
 [book]
@@ -85,7 +85,7 @@ git-repository-url = "https://github.com/wa-lang/wabook"
 edit-url-template = "https://github.com/wa-lang/wabook/edit/master/testdata/{path}"
 ```
 
-## `SUMMARY.md` file
+## `SUMMARY.md` 文件
 
 ```md
 # Summary
@@ -101,7 +101,7 @@ edit-url-template = "https://github.com/wa-lang/wabook/edit/master/testdata/{pat
 <!-- comment -->
 ```
 
-## Markdown file
+## Markdown 文件
 
 ```md
 # Chapter 1
@@ -116,4 +116,4 @@ Image: `![](../images/video-001.png)`:
 OK!
 ```
 
-Do not support inline HTML。
+不支持内联 HTML。

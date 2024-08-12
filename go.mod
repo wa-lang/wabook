@@ -1,4 +1,4 @@
-module github.com/wa-lang/mnbook
+module github.com/wa-lang/wabook
 
 go 1.21
 

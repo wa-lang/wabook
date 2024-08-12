@@ -15,7 +15,7 @@ import (
 
 func Main() {
 	cliApp := cli.NewApp()
-	cliApp.Name = "mnbook"
+	cliApp.Name = "wabook"
 	cliApp.Usage = "A tool for build mini markdown book"
 	cliApp.HideHelpCommand = true
 	cliApp.Version = func() string {
@@ -28,7 +28,7 @@ func Main() {
 	}()
 
 	cliApp.CustomAppHelpTemplate = cli.AppHelpTemplate +
-		"\n See \"https://github.com/wa-lang/mnbook\" for more information.\n"
+		"\n See \"https://github.com/wa-lang/wabook\" for more information.\n"
 
 	cliApp.Action = func(ctx *cli.Context) error {
 		if ctx.NArg() > 0 {

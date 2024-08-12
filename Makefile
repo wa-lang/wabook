@@ -17,7 +17,7 @@ debug:
 	-rm -rf ./testdata/_book
 
 	go run main.go build ./testdata && cd ./testdata && mv book _book_go
-	cd ./testdata && mnbook build && mv book _book
+	cd ./testdata && wabook build && mv book _book
 	cd ./testdata && mv _book_go book
 
 clean:

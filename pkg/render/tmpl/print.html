@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>{{$page := .}}
 <html lang="zh" class="sidebar-visible no-js light">
     <head>
-        <!-- Book generated using https://github.com/wa-lang/mnbook -->
+        <!-- Book generated using https://github.com/wa-lang/wabook -->
         <meta charset="UTF-8">
         <title>{{$page.Title}}</title>
         <!-- Custom HTML head -->
@@ -36,15 +36,15 @@
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
             try {
-                var theme = localStorage.getItem('mnbook-theme');
-                var sidebar = localStorage.getItem('mnbook-sidebar');
+                var theme = localStorage.getItem('wabook-theme');
+                var sidebar = localStorage.getItem('wabook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
-                    localStorage.setItem('mnbook-theme', theme.slice(1, theme.length - 1));
+                    localStorage.setItem('wabook-theme', theme.slice(1, theme.length - 1));
                 }
 
                 if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
-                    localStorage.setItem('mnbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                    localStorage.setItem('wabook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
             } catch (e) { }
         </script>
@@ -52,7 +52,7 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mnbook-theme'); } catch(e) { }
+            try { theme = localStorage.getItem('wabook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
@@ -66,7 +66,7 @@
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mnbook-sidebar'); } catch(e) { }
+                try { sidebar = localStorage.getItem('wabook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             }
             html.classList.remove('sidebar-visible');
