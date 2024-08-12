@@ -7,8 +7,7 @@
 </div>
 <div align="center">
 
-[![Build Status](https://github.com/wa-lang/waBook/workflows/CI/badge.svg?event=push)](https://github.com/wa-lang/waBook/actions?workflow=CI)
-[![Coverage Status](https://coveralls.io/repos/github/wa-lang/wabook/badge.svg)](https://coveralls.io/github/wa-lang/wabook)
+[![Build Status](https://github.com/wa-lang/wabook/actions/workflows/wabook.yml/badge.svg)](https://github.com/wa-lang/wabook/actions/workflows/wabook.yml)
 [![GitHub release](https://img.shields.io/github/v/tag/wa-lang/wabook.svg?label=release)](https://github.com/wa-lang/wabook/releases)
 [![license](https://img.shields.io/github/license/wa-lang/wa.svg)](https://github.com/wa-lang/wa/blob/master/LICENSE)
 
