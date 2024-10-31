@@ -42,9 +42,13 @@ func (p *BookRendor) renderTalkPages(path string) error {
 	t := template.Must(present.Template().Parse(tmplPresent))
 	t = template.Must(t.Parse(tmplAction))
 
-	var buf bytes.Buffer
-	if err = doc.Render(&buf, t); err != nil {
-		return err
+	var htmlContent []byte
+	{
+		var buf bytes.Buffer
+		if err = doc.Render(&buf, t); err != nil {
+			return err
+		}
+		htmlContent = bytes.TrimSpace(buf.Bytes())
 	}
 
 	dstAbsPath := filepath.Join(p.Book.Root, "book", path)
@@ -54,7 +58,7 @@ func (p *BookRendor) renderTalkPages(path string) error {
 	dstAbsPath += ".html"
 
 	os.MkdirAll(filepath.Dir(dstAbsPath), 0777)
-	if err := os.WriteFile(dstAbsPath, buf.Bytes(), 0666); err != nil {
+	if err := os.WriteFile(dstAbsPath, htmlContent, 0666); err != nil {
 		return err
 	}
 
