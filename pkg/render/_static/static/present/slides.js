@@ -512,7 +512,7 @@ function addGeneralStyle() {
   document.querySelector('head').appendChild(el);
 
   var el = document.createElement('meta');
-  el.name = 'apple-mobile-web-app-capable';
+  el.name = 'mobile-web-app-capable';
   el.content = 'yes';
   document.querySelector('head').appendChild(el);
 
