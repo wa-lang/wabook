@@ -16,18 +16,32 @@ type Book struct {
 }
 
 func LoadBook(path string) (book *Book, err error) {
+	bookIniPath := filepath.Join(path, "book.ini")
+	bookTomlPath := filepath.Join(path, "book.toml")
+
 	book = &Book{Root: path}
-	book.Info, err = LoadConfig(filepath.Join(path, "book.ini"))
+	book.Info, err = LoadConfig(bookIniPath)
 	if err != nil {
-		if info, errx := LoadConfig(filepath.Join(path, "book.toml")); errx != nil {
-			return nil, err
+		if info, errx := LoadConfig(bookTomlPath); errx != nil {
+			if fileExists(bookIniPath) || fileExists(bookTomlPath) {
+				// 文件存在说明有错误
+				return nil, err
+			} else {
+				// 不存在则生成一个空的
+				book.Info = &BookToml{}
+			}
 		} else {
 			book.Info = info
 		}
 	}
 	book.Summary, err = LoadSummary(filepath.Join(path, "SUMMARY.md"))
 	if err != nil {
-		return nil, err
+		if fileExists(filepath.Join(path, "SUMMARY.md")) {
+			return nil, err
+		} else {
+			err = nil
+		}
+		book.Summary = &Summary{}
 	}
 	book.Talks = loadTalks(book.Root)
 	return
