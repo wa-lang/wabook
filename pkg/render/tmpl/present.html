@@ -6,17 +6,24 @@
   <head>
     <title>{{.Title}}</title>
     <meta charset='utf-8'>
+
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1">
+
+	<link rel="stylesheet" href="{{.Root}}/static/present/font.css">
+	<link rel="stylesheet" href="{{.Root}}/static/present/styles.css">
+
     <script>
       var notesEnabled = {{.NotesEnabled}};
     </script>
-    <script src='./static/present/slides.js'></script>
+    <script src='{{.Root}}/static/present/slides.js'></script>
 
     {{if .NotesEnabled}}
     <script>
       var sections = {{.Sections}};
       var titleNotes = {{.TitleNotes}}
     </script>
-    <script src='./static/present/notes.js'></script>
+    <script src='{{.Root}}/static/present/notes.js'></script>
     {{end}}
   </head>
 

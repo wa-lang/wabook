@@ -69,6 +69,7 @@ func Register(name string, parser ParseFunc) {
 
 // Doc represents an entire document.
 type Doc struct {
+	Root       string // 根目录相对路径
 	Title      string
 	Subtitle   string
 	Summary    string

@@ -6,6 +6,7 @@ package render
 
 import (
 	"bytes"
+	"fmt"
 	"html/template"
 	"os"
 	"path/filepath"
@@ -28,6 +29,15 @@ func (p *BookRendor) renderAllTalkPages() error {
 	return nil
 }
 
+func (p *BookRendor) getTalkPageRoot(path string) string {
+	absPath := filepath.Clean(filepath.Join(p.Book.Root, filepath.Dir(path)))
+	relPath, err := filepath.Rel(absPath, p.Book.Root)
+	if err != nil {
+		panic(fmt.Sprintf("BookRendor.getTalkPageRoot(%v): %v", path, err))
+	}
+	return relPath
+}
+
 func (p *BookRendor) renderTalkPages(path string) error {
 	content, err := os.ReadFile(filepath.Join(p.Book.Root, path))
 	if err != nil {
@@ -38,6 +48,9 @@ func (p *BookRendor) renderTalkPages(path string) error {
 	if err != nil {
 		return err
 	}
+
+	// 设置根目录相对路径
+	doc.Root = p.getTalkPageRoot(path)
 
 	t := template.Must(present.Template().Parse(tmplPresent))
 	t = template.Must(t.Parse(tmplAction))
