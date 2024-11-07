@@ -18,6 +18,15 @@ func (p *BookRendor) renderHomepage() error {
 		goldmark.WithExtensions(extension.GFM),
 	)
 
+	// 已经有 html 文件
+	if html, err := os.ReadFile(filepath.Join(p.Book.Root, "index.html")); err == nil {
+		return os.WriteFile(
+			filepath.Join(p.Book.Root, "book", "index.html"),
+			html,
+			0666,
+		)
+	}
+
 	// 读取首页
 	page_Content, err := os.ReadFile(filepath.Join(p.Book.Root, "index.md"))
 	if err != nil {
