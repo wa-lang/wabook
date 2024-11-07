@@ -5,10 +5,37 @@
 package render
 
 import (
+	"bytes"
 	"os"
 	"path/filepath"
+
+	"github.com/yuin/goldmark"
+	"github.com/yuin/goldmark/extension"
 )
 
 func (p *BookRendor) renderHomepage() error {
-	return os.WriteFile(filepath.Join(p.Book.Root, "book", "index.html"), []byte("hello wabook"), 0666)
+	markdown := goldmark.New(
+		goldmark.WithExtensions(extension.GFM),
+	)
+
+	// 读取首页
+	page_Content, err := os.ReadFile(filepath.Join(p.Book.Root, "index.md"))
+	if err != nil {
+		page_Content, err = os.ReadFile(filepath.Join(p.Book.Root, "readme.md"))
+		if err != nil {
+			page_Content, err = os.ReadFile(filepath.Join(p.Book.Root, "README.md"))
+		}
+		err = nil
+	}
+
+	var buf bytes.Buffer
+	if err := markdown.Convert([]byte(page_Content), &buf); err != nil {
+		return err
+	}
+
+	return os.WriteFile(
+		filepath.Join(p.Book.Root, "book", "index.html"),
+		buf.Bytes(),
+		0666,
+	)
 }
