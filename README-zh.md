@@ -33,6 +33,12 @@
 - 《VS Code插件开发》: https://chai2010.cn/vscode-extdev-book/
 - 《Go语言圣经读书笔记》: https://github.com/chai2010/gopl-notes-zh
 
+使用 [waBook](https://github.com/wa-lang/wabook) 构建的幻灯片列表:
+
+- 凹语言map与Φ指令的纠葛: https://wa-lang.org/talks/ssa-bug/
+- Go编译器定制简介: https://wa-lang.github.io/ugo-compiler-book/go-compiler-intro.html
+
+
 ## 安装
 
 ```
